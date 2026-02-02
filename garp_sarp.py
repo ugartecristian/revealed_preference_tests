@@ -3,6 +3,21 @@ import networkx as nx
 from itertools import product
 
 
+# Implements Tests For:
+#   - Generalized Axiom of Revealed Preferences GARP
+#   - Strong Axiom of Revealed Preferences SARP
+
+# Functions receive as input numpy matrices p and x, where
+#   p is matrix of prices
+#   x is matrix of consumption bundles
+#       both matrices have N rows and K columns
+#       p[i, j] is price of good j in observation i
+#       x[i, j] is consumption of good j in observation i
+
+#       IMPORTANT: prices must be normalized such that np.dot(p[i], x[i].T) = 1
+#       for every observation i in range(N)
+
+
 def GARP(p, x):
     # Returns True if GARP holds, False otherwise
     DRP, DRSP = direct_rev_prefs(p, x)
@@ -29,11 +44,6 @@ def SARP(p, x):
 
 
 def direct_rev_prefs(p, x):
-    # Receives matrices of prices and consumption bundles
-    #     Matrices are of N x K, where
-    #         N is number of observations and
-    #         K number of goods
-    #
     # Returns N x N Matrices of Direct Revealed Preferences
     #   DRP Direct Revealed Preferences
     #   DRSP Direct Revealed Strict Preferences

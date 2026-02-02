@@ -2,6 +2,24 @@ import numpy as np
 from garp_sarp import GARP, SARP, direct_rev_prefs, rp_graph
 
 
+# Computes Rationalization by Differentiable Utility:
+#   - smooth_GARP: rationalization by differentiable utility
+#   - smooth_SARP: rationalization by a differentiable and strictly concave
+#                  utility
+#   - SSARP: Strong SARP proposed by Chiappori and Rochet (1987)
+# Strong Axiom of Revealed Preferences SARP
+
+# Functions receive as input numpy matrices p and x, where
+#   p is matrix of prices
+#   x is matrix of consumption bundles
+#       both matrices have N rows and K columns
+#       p[i, j] is price of good j in observation i
+#       x[i, j] is consumption of good j in observation i
+
+#       IMPORTANT: prices must be normalized such that np.dot(p[i], x[i].T) = 1
+#       for every observation i in range(N)
+
+
 def smooth_GARP(p, x):
     # Returns True if Smooth GARP holds, False Otherwise
 
