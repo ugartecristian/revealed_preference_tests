@@ -1,6 +1,7 @@
 # revealed_preference_tests
 Python Implementation of Revealed Preference Tests
-*Requires NumPy (https://numpy.org) and NetworkX (https://networkx.org) packages.
+
+*Requires NumPy (https://numpy.org) and NetworkX (https://networkx.org) packages.*
 
 - garp_sarp.py implements tests for:
     - Generalized Axiom of Revealed Preferences GARP
